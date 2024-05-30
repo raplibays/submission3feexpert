@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 
 const createDetailrestaurant = (restaurant) => `
 <div id="contentdetail" class="contentdetail">
-<img class="image_detail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+<img class="lazyload image_detail" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
 <div class="restaurant_info_detail">
         <h2 class="detail_title">${restaurant.name}</h2>
     <div class="info_list">

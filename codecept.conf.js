@@ -13,12 +13,12 @@ exports.config = {
   helpers: {
     Playwright: {
       browser: 'chromium',
-      url: 'http://localhost:8080/',
-      show: true,
-    },
+      url: 'http://localhost:8080',
+      show: true
+    }
   },
   include: {
-    I: './steps_file.js',
+    I: './steps_file.js'
   },
-  name: 'restaurant-apps-starter-project',
-};
+  name: 'restaurant-apps-starter-project'
+}

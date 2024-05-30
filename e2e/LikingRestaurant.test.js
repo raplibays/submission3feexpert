@@ -7,6 +7,11 @@ Before(({ I }) => {
   I.amOnPage('/#/favorite');
 });
 
+Scenario('showing empty liked restaurants', ({ I }) => {
+  I.seeElement('.favorite');
+  I.see(emptycondition, '.empty_favorite');
+});
+
 Scenario('liking one restaurant', async ({ I }) => {
   I.amOnPage('/#/favorite');
   I.see(emptycondition, '.empty_favorite');
@@ -41,7 +46,7 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.click(cardrestaurant);
 
   I.waitForElement('#likeButton');
-  I.seeElement('#likeButton');
+  I.retry(3).seeElement('#likeButton');
   I.click('#likeButton');
 
   I.amOnPage('/#/favorite');
@@ -56,9 +61,5 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.click('#likeButton');
 
   I.amOnPage('/#/favorite');
-  I.seeElement(emptycondition, '.empty_favorite');
-
-  const empty = await I.grabTextFrom(emptycondition, '.empty_favorite');
-
-  assert.strictEqual(empty, emptycondition);
+  I.see(emptycondition, '.empty_favorite');
 });
